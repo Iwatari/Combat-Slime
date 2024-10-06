@@ -7,7 +7,7 @@ namespace CombatSlime
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private Camera m_Camera;
-        [SerializeField] private Transform player;
+        [SerializeField] private Transform m_Target;
         [SerializeField] private float m_SmoothSpeed = 0.125f;
         [SerializeField] private float m_HorizontalOffset = 5f;
 
@@ -23,7 +23,7 @@ namespace CombatSlime
         }
         private void LateUpdate()
         {
-            if (player != null)
+            if (m_Target != null)
             {
                 CameraFollowPlayer();
             }
@@ -37,14 +37,14 @@ namespace CombatSlime
 
         private void CameraFollowPlayer()
         {
-            if (player.position.x > m_RightBound)
+            if (m_Target.position.x > m_RightBound)
             {
-                m_TargetPosition.x = player.position.x - m_HorizontalOffset;
+                m_TargetPosition.x = m_Target.position.x - m_HorizontalOffset;
             }
 
-            else if (player.position.x < m_LeftBound)
+            else if (m_Target.position.x < m_LeftBound)
             {
-                m_TargetPosition.x = player.position.x + m_HorizontalOffset;
+                m_TargetPosition.x = m_Target.position.x + m_HorizontalOffset;
             }
 
             m_TargetPosition.z = m_FixedZPosition;
@@ -56,13 +56,18 @@ namespace CombatSlime
 
         private void OnDrawGizmos()
         {
-            if (player != null)
+            if (m_Target != null)
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawLine(new Vector3(m_RightBound, -10, 0), new Vector3(m_RightBound, 10, 0));
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(new Vector3(m_LeftBound, -10, 0), new Vector3(m_LeftBound, 10, 0));
             }
+        }
+
+        public void SetTarget(Transform newTarget)
+        {
+            m_Target = newTarget;
         }
     }
 }
