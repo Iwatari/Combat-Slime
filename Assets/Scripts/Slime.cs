@@ -35,6 +35,12 @@ namespace CombatSlime
             UpdateRigidBody();
             CheckGround();
             HandleJump();
+
+            if (Input.GetKey(KeyCode.X))
+            {
+                Debug.Log("зашёл");
+                Fire(WeaponMode.Blue);
+            }
         }
 
         private void UpdateRigidBody()
@@ -64,6 +70,30 @@ namespace CombatSlime
                 isGround = false;
             }
         }
+
+        [SerializeField] private Weapon[] m_Weapons;
+
+        public void Fire(WeaponMode mode)
+        {
+            for (int i = 0; i < m_Weapons.Length; i++)
+            {
+                if (m_Weapons[i].Mode == mode)
+                {
+                    m_Weapons[i].Fire();
+                }
+            }
+        }
+
+
+        public void AssignWeapon(WeaponProperties props)
+        {
+            for (int i = 0; i < m_Weapons.Length; i++)
+            {
+                m_Weapons[i].AssignLoadout(props);
+            }
+        }
+
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (m_GroundCheck != null)
@@ -72,5 +102,6 @@ namespace CombatSlime
                 Gizmos.DrawWireCube(m_GroundCheck.position, m_GroundCheckSize);
             }
         }
+#endif
     }
 }
