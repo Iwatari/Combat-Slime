@@ -35,12 +35,7 @@ namespace CombatSlime
             UpdateRigidBody();
             CheckGround();
             HandleJump();
-
-            if (Input.GetKey(KeyCode.X))
-            {
-                Debug.Log("зашёл");
-                Fire(WeaponMode.Blue);
-            }
+            OpenFire();
         }
 
         private void UpdateRigidBody()
@@ -93,6 +88,13 @@ namespace CombatSlime
             }
         }
 
+        public void OpenFire()
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Fire(WeaponMode.Blue);
+            }
+        }
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {

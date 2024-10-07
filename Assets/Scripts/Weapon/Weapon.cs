@@ -37,7 +37,7 @@ namespace CombatSlime
 
             Projectile projectile = Instantiate(m_WeaponProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
-            projectile.transform.up = transform.up;  //Проверить потом позицию Projectile
+            projectile.transform.right = transform.right;  
 
             m_RefireTimer = m_WeaponProperties.RateOfFire;
         }
