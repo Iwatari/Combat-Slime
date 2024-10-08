@@ -29,7 +29,7 @@ namespace CombatSlime
                 m_RefireTimer -= Time.deltaTime;
         }
 
-        public void Fire()
+        public void Fire(Vector2 fireDirection)
         {
             if (m_WeaponProperties == null) return;
 
@@ -37,8 +37,9 @@ namespace CombatSlime
 
             Projectile projectile = Instantiate(m_WeaponProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
-            projectile.transform.right = transform.right;  
+            projectile.transform.up = fireDirection;
 
+            projectile.SetParentShooter(m_Slime);
             m_RefireTimer = m_WeaponProperties.RateOfFire;
         }
 

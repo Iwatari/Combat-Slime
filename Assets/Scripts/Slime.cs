@@ -22,9 +22,12 @@ namespace CombatSlime
 
         [SerializeField] private LayerMask groundLayer;
 
+        [SerializeField] private Weapon[] m_Weapons;
+
         private bool isGround;
 
         private Rigidbody2D m_Rigid;
+
         protected override void Start()
         {
             m_Rigid = GetComponent<Rigidbody2D>();
@@ -35,7 +38,7 @@ namespace CombatSlime
             UpdateRigidBody();
             CheckGround();
             HandleJump();
-            OpenFire();
+            HandleMouseFire();
         }
 
         private void UpdateRigidBody()
@@ -66,20 +69,26 @@ namespace CombatSlime
             }
         }
 
-        [SerializeField] private Weapon[] m_Weapons;
-
-        public void Fire(WeaponMode mode)
+        private void HandleMouseFire()
         {
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                FireAtPosition(mousePosition, WeaponMode.Blue);
+            }
+        }
+        public void FireAtPosition(Vector3 targetPosition, WeaponMode mode)
+        {
+            Vector2 direction = (targetPosition - transform.position).normalized;
+
             for (int i = 0; i < m_Weapons.Length; i++)
             {
                 if (m_Weapons[i].Mode == mode)
                 {
-                    m_Weapons[i].Fire();
+                    m_Weapons[i].Fire(direction);
                 }
             }
         }
-
-
         public void AssignWeapon(WeaponProperties props)
         {
             for (int i = 0; i < m_Weapons.Length; i++)
@@ -88,13 +97,6 @@ namespace CombatSlime
             }
         }
 
-        public void OpenFire()
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Fire(WeaponMode.Blue);
-            }
-        }
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {

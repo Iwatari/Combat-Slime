@@ -11,6 +11,7 @@ namespace CombatSlime
 
         protected override void OnHit(Destructible destructible)
         {
+
             if (destructible.HitPoints <= 0)
             {
                 if (m_Parent == Player.Instance.ActiveSlime)
