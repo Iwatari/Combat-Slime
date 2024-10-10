@@ -8,7 +8,7 @@ namespace Common
 
         [SerializeField] private float m_Lifetime;
 
-        [SerializeField] private int m_Damage;
+        [SerializeField] protected int m_Damage;
 
 
         protected virtual void OnHit(Destructible destructible) { }
@@ -23,7 +23,7 @@ namespace Common
             float stepLength = Time.deltaTime * m_Velocity;
             Vector2 step = transform.up * stepLength;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, stepLength);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, stepLength, ~LayerMask.GetMask("Player"));
 
             if (hit)
             {

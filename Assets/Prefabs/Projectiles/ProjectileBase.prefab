@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3298455563965089300}
   - component: {fileID: -1894923616846110713}
-  - component: {fileID: 5754685703146718327}
+  - component: {fileID: -8756060253768785973}
   m_Layer: 0
   m_Name: ProjectileBase
   m_TagString: Untagged
@@ -130,7 +130,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5754685703146718327
+--- !u!114 &-8756060253768785973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,14 +139,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2283556037161196212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc371985ce270a944af9e3317f081a4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b05a5236e0b2ec449f9c51809684a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
   m_Velocity: 10
   m_Lifetime: 3
   m_Damage: 10
-  m_ImpactEffectPrefab: {fileID: 0}
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &8740610173415139327
 GameObject:
   m_ObjectHideFlags: 0

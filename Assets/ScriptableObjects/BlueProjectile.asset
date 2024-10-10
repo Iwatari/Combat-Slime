@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueProjectile
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 5754685703146718327, guid: 5171f578e1eb9034e8b938b433632659, type: 3}
+  m_ProjectilePrefab: {fileID: -8756060253768785973, guid: 5171f578e1eb9034e8b938b433632659, type: 3}
   m_RateOfFire: 0.2
   m_EnergyUsage: 0
   m_LaunchSFX: {fileID: 0}

@@ -39,7 +39,11 @@ namespace CombatSlime
             projectile.transform.position = transform.position;
             projectile.transform.up = fireDirection;
 
-            projectile.SetParentShooter(m_Slime);
+            Projectile collisionCheck = projectile.GetComponent<Projectile>();
+            if (collisionCheck != null)
+            {
+                collisionCheck.SetParentShooter(m_Slime);
+            }
             m_RefireTimer = m_WeaponProperties.RateOfFire;
         }
 
