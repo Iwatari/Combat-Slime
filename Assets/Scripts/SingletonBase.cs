@@ -15,6 +15,7 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
         }
 
         Instance = this as T;
+        DontDestroyOnLoad(this.gameObject);
     }
 }
 

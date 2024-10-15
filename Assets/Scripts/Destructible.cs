@@ -5,26 +5,15 @@ using UnityEngine.Events;
 namespace Common
 {
 
-    /// <summary>
-    /// The distructible object on the scene. What can have hitpoints.
-    /// </summary>
     public class Destructible : Entity
     {
         #region Properties
-        /// <summary>
-        /// The object ignores the damage.
-        /// </summary>
         [SerializeField] private bool m_Indestructible;
         public bool IsIndestructible => m_Indestructible;
 
-        ///<summary>
-        ///The starting number of hitpoints.
-        ///</summary>
         [SerializeField] protected int m_HitPoints;
         public int MaxHitPoints => m_HitPoints;
-        ///<summary>
-        ///The current number of hitpoints.
-        /// </summary>
+
         private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
@@ -42,10 +31,7 @@ namespace Common
         #endregion
 
         #region Public API
-        /// <summary>
-        /// Applying damage to an object.
-        /// </summary>
-        /// <param name="damage"> Damage to an object </param>
+
         public void AplyDamage(int damage)
         {
             if (m_Indestructible) return;
@@ -72,9 +58,7 @@ namespace Common
         }
 
         #endregion
-        /// <summary>
-        /// Redefined object destruction event when hitpoints are below zero.
-        /// </summary>
+
         protected virtual void OnDeath()
         {
             Destroy(gameObject);

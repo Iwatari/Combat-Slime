@@ -39,11 +39,27 @@ namespace CombatSlime
             projectile.transform.position = transform.position;
             projectile.transform.up = fireDirection;
 
+            LayerMask collisionLayer;
+            if (m_Slime.IsPlayer())
+            {
+                collisionLayer = LayerMask.GetMask("AI"); 
+            }
+            else
+            {
+                collisionLayer = LayerMask.GetMask("Player"); 
+            }
+
             Projectile collisionCheck = projectile.GetComponent<Projectile>();
             if (collisionCheck != null)
             {
-                collisionCheck.SetParentShooter(m_Slime);
+                collisionCheck.SetParentShooter(m_Slime, collisionLayer);
             }
+
+            if (m_Audio != null && m_WeaponProperties.LaunchSFX != null)
+            {
+                m_Audio.PlayOneShot(m_WeaponProperties.LaunchSFX);
+            }
+
             m_RefireTimer = m_WeaponProperties.RateOfFire;
         }
 
