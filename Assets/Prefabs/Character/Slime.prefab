@@ -340,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Nickname: 
   m_Indestructible: 0
-  m_HitPoints: 0
+  m_HitPoints: 100
   m_TeamID: 0
   m_EventOnDeath:
     m_PersistentCalls:

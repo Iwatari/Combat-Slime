@@ -32,8 +32,8 @@ namespace CombatSlime
         {
             UpdateRigidBody();
             CheckGround();
-            HandleJump();
-            HandleMouseFire();
+            JumpControl();
+            MouseFireControl();
         }
 
         private void UpdateRigidBody()
@@ -60,7 +60,7 @@ namespace CombatSlime
             }
         }
 
-        private void HandleJump()
+        private void JumpControl()
         {
             if (!IsControlledByAI())
             {
@@ -71,7 +71,7 @@ namespace CombatSlime
                 }
             }
         }
-        private void HandleMouseFire()
+        private void MouseFireControl()
         {
             if (!IsControlledByAI())
             {

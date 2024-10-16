@@ -2036,14 +2036,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AIBehaviour: 3
-  patrolPoints:
+  m_PatrolPoints:
   - {fileID: 653074489}
   - {fileID: 1458501731}
-  patrolSpeed: 0.5
-  waitTimeAtPoints: 1
-  attackRange: 5
-  attackRate: 1
-  attackMode: 0
+  m_PatrolSpeed: 0.5
+  m_WaitTimeAtPoints: 1
+  m_AttackRange: 5
+  m_AttackRate: 1
+  m_AttackMode: 0
+  m_TargetUpdateInterval: 1
 --- !u!1 &1663976956
 GameObject:
   m_ObjectHideFlags: 0
