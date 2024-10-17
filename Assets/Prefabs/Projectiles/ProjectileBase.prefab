@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Velocity: 10
   m_Lifetime: 3
   m_Damage: 10
-  collisionLayer:
+  m_CollisionLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 264
 --- !u!1 &8740610173415139327
 GameObject:
   m_ObjectHideFlags: 0

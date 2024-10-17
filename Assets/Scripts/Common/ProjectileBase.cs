@@ -9,10 +9,10 @@ namespace Common
         [SerializeField] private float m_Velocity;
         [SerializeField] private float m_Lifetime;
         [SerializeField] protected int m_Damage;
+        [SerializeField] protected LayerMask m_CollisionLayer;
 
         private float m_Timer;
         protected Destructible m_Parent;
-        protected LayerMask m_CollisionLayer;
 
         protected virtual void Update()
         {

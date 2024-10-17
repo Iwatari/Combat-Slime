@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 6029410243875489612}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.226, z: 0}
+  m_LocalPosition: {x: 0, y: -0.321, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,11 +184,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -456314093, guid: 05dadc3ae579c674c8aae57b203e9a56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9feca675fa5106746b1e249ab2ad50bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.84, y: 0.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -203,9 +203,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7415001145915014583}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65751f3197cf2a449aa44fcd549b4b24, type: 2}
+  m_Controller: {fileID: 9100000, guid: 318d14d1d32f873448912e69f3aca922, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 4856190683222706129}
   m_Layer: 7
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,7 +286,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007827431, y: 0.028012753}
+  m_Offset: {x: -0.0015699267, y: -0.0020233393}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -297,7 +297,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8928756, y: 0.4918394}
+  m_Size: {x: 1.0355467, y: 0.7471459}
   m_EdgeRadius: 0
 --- !u!50 &7378228898290096486
 Rigidbody2D:
@@ -348,13 +348,13 @@ MonoBehaviour:
   m_ScoreValue: 0
   m_Mass: 5
   m_MovementSpeed: 5
-  m_JumpForce: 40
+  m_JumpForce: 45
   m_GroundCheckSize: {x: 0.85, y: 0.1}
   m_GroundCheckAngle: 0
   m_GroundCheck: {fileID: 6122078076561176910}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 328
   m_Weapons:
   - {fileID: 7972074535968346743}
 --- !u!114 &4856190683222706129
@@ -369,4 +369,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c7664a2027a464ca2add17c3f7987a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 100
+  m_Damage: 10

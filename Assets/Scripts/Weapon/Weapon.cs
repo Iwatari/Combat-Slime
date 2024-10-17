@@ -42,7 +42,7 @@ namespace CombatSlime
             LayerMask collisionLayer;
             if (m_Slime.IsPlayer())
             {
-                collisionLayer = LayerMask.GetMask("AI"); 
+                collisionLayer = LayerMask.GetMask("AI", "Ground", "Obstacle"); 
             }
             else
             {

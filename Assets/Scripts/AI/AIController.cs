@@ -20,11 +20,11 @@ namespace CombatSlime
 
         [Header("Настройки патрулирования")]
         [SerializeField] private Transform[] m_PatrolPoints;
-        [SerializeField] private float m_PatrolSpeed = 2f;
+        [SerializeField] private float m_PatrolSpeed = 0.5f;
         [SerializeField] private float m_WaitTimeAtPoints = 1f;
 
         [Header("Настройки атаки")]
-        [SerializeField] private float m_AttackRange = 10f;
+        [SerializeField] private float m_AttackRange = 5f;
         [SerializeField] private float m_AttackRate = 1f;
         [SerializeField] private WeaponMode m_AttackMode = WeaponMode.Blue;
         [SerializeField] private float m_TargetUpdateInterval = 1f;
@@ -103,12 +103,16 @@ namespace CombatSlime
             Transform targetPoint = m_PatrolPoints[m_CurrentPointIndex];
             Vector3 direction = (targetPoint.position - transform.position).normalized;
 
-            m_Slime.Move(direction.x * m_PatrolSpeed);
+           // m_Slime.Move(direction.x * m_PatrolSpeed);
             
             if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
             {
                 WaitingControl();
-            }           
+            }
+            else
+            {
+                m_Slime.Move(direction.x * m_PatrolSpeed);  // Продолжаем движение
+            }
         }
 
         private void Attack()
@@ -185,8 +189,9 @@ namespace CombatSlime
 
             if (isWaiting)
             {
+                m_Slime.Move(0);
                 m_WaitTimer -= Time.deltaTime;
-                if (m_WaitTimer <= 0f)
+                if (m_WaitTimer <= 0)
                 {
                     isWaiting = false;
                     m_CurrentPointIndex = (m_CurrentPointIndex + 1) % m_PatrolPoints.Length;

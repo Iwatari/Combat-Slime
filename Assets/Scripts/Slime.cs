@@ -19,6 +19,8 @@ namespace CombatSlime
 
         private bool isGround;
         private Rigidbody2D m_Rigid;
+        private Animator m_Animator;
+        private SpriteRenderer m_SpriteRenderer;
 
         protected override void Start()
         {
@@ -26,6 +28,15 @@ namespace CombatSlime
 
             m_Rigid = GetComponent<Rigidbody2D>();
             m_Rigid.mass = m_Mass;
+
+            m_Animator = GetComponentInChildren<Animator>();
+
+            m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+            if (m_Animator == null)
+            {
+                Debug.LogError("Slime: Animator не найден на объекте.");
+            }
         }
 
         private void Update()
@@ -34,6 +45,7 @@ namespace CombatSlime
             CheckGround();
             JumpControl();
             MouseFireControl();
+            UpdateAnimatorParameters();
         }
 
         private void UpdateRigidBody()
@@ -42,6 +54,7 @@ namespace CombatSlime
             {
                 float move = Input.GetAxis("Horizontal");
                 Move(move);
+                FlipSprite(move);
             }
         }
         public void Move(float direction)
@@ -51,6 +64,13 @@ namespace CombatSlime
 
         private void CheckGround()
         {
+            if (m_GroundCheck == null)
+            {
+                Debug.LogWarning("Slime: GroundCheck не назначен.");
+                isGround = false;
+                return;
+            }
+
             Collider2D hit = Physics2D.OverlapBox(m_GroundCheck.position, m_GroundCheckSize, m_GroundCheckAngle, groundLayer);
             isGround = hit != null;
 
@@ -116,6 +136,21 @@ namespace CombatSlime
         public bool IsPlayer()
         {
             return gameObject.layer == LayerMask.NameToLayer("Player");
+        }
+
+        private void UpdateAnimatorParameters()
+        {
+            m_Animator.SetBool("isJump", !isGround && m_Rigid.velocity.y > 0.1f);
+            m_Animator.SetBool("isFalling", m_Rigid.velocity.y < -0.1f);
+            m_Animator.SetBool("isMoving", Mathf.Abs(m_Rigid.velocity.x) > 0.1f);
+        }
+
+        private void FlipSprite(float move)
+        {
+            if (move > 0)
+                m_SpriteRenderer.flipX = false;  
+            else if (move < 0)
+                m_SpriteRenderer.flipX = true; 
         }
 
 #if UNITY_EDITOR
