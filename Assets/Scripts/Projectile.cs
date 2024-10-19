@@ -9,6 +9,5 @@ namespace CombatSlime
         {
             Destroy(gameObject);
         }
-
     }
 }

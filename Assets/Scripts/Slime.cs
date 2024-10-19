@@ -21,6 +21,8 @@ namespace CombatSlime
         private Rigidbody2D m_Rigid;
         private Animator m_Animator;
         private SpriteRenderer m_SpriteRenderer;
+        private WeaponMode m_Mode;
+
 
         protected override void Start()
         {
@@ -39,7 +41,7 @@ namespace CombatSlime
             }
         }
 
-        private void Update()
+            private void Update()
         {
             UpdateRigidBody();
             CheckGround();
@@ -84,7 +86,7 @@ namespace CombatSlime
         {
             if (!IsControlledByAI())
             {
-                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
+                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && isGround)
                 {
                     m_Rigid.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
                     isGround = false;
@@ -98,9 +100,14 @@ namespace CombatSlime
                 if (Input.GetMouseButton(0))
                 {
                     Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    FireAtPosition(mousePosition, WeaponMode.Blue);
+                    FireAtPosition(mousePosition, m_Mode);
                 }
             }
+        }
+
+        public void SetWeaponMode(WeaponMode mode)
+        {
+            m_Mode = mode;
         }
 
         public void FireAtPosition(Vector3 targetPosition, WeaponMode mode)
@@ -138,6 +145,7 @@ namespace CombatSlime
             return gameObject.layer == LayerMask.NameToLayer("Player");
         }
 
+        //пересмотреть
         private void UpdateAnimatorParameters()
         {
             m_Animator.SetBool("isJump", !isGround && m_Rigid.velocity.y > 0.1f);

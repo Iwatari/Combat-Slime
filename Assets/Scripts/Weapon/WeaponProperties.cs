@@ -5,9 +5,9 @@ namespace CombatSlime
 {
     public enum WeaponMode
     {
-        Blue,
-        Green,
-        Red
+        White,
+        Yellow,
+        Blue
     }
     [CreateAssetMenu]
     public sealed class WeaponProperties : ScriptableObject

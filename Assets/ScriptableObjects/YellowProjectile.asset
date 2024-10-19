@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b56d6299b2bc14a49b14e32b48afc9db, type: 3}
-  m_Name: BlueProjectile
+  m_Name: YellowProjectile
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: -8756060253768785973, guid: 19d2652550a97f342af2d1175c3319da, type: 3}
+  m_ProjectilePrefab: {fileID: -8756060253768785973, guid: 35a9aa9184ebe354fb532035a5d6cbaa, type: 3}
   m_RateOfFire: 0.2
   m_EnergyUsage: 0
   m_LaunchSFX: {fileID: 0}

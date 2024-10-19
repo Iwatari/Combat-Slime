@@ -31,9 +31,7 @@ namespace CombatSlime
 
         public void Fire(Vector2 fireDirection)
         {
-            if (m_WeaponProperties == null) return;
-
-            if (m_RefireTimer > 0) return;
+            if (m_WeaponProperties == null || m_RefireTimer > 0) return;
 
             Projectile projectile = Instantiate(m_WeaponProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;

@@ -26,7 +26,7 @@ namespace CombatSlime
         [Header("Настройки атаки")]
         [SerializeField] private float m_AttackRange = 5f;
         [SerializeField] private float m_AttackRate = 1f;
-        [SerializeField] private WeaponMode m_AttackMode = WeaponMode.Blue;
+        [SerializeField] private WeaponMode m_AttackMode = WeaponMode.White;
         [SerializeField] private float m_TargetUpdateInterval = 1f;
         private float m_AttackCooldown = 0f;
         private float m_TargetUpdateTimer = 0f;
