@@ -2401,10 +2401,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime AI
       objectReference: {fileID: 0}
-    - target: {fileID: 659485229384951288, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1296076487426129371, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
       propertyPath: m_PatrolPoints.Array.data[0]
       value: 
@@ -2413,14 +2409,6 @@ PrefabInstance:
       propertyPath: m_PatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1458501731}
-    - target: {fileID: 2058823746151195989, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563753544982138545, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
-      propertyPath: m_Damage
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7775206696190542858, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.93

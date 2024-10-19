@@ -102,8 +102,6 @@ namespace CombatSlime
 
             Transform targetPoint = m_PatrolPoints[m_CurrentPointIndex];
             Vector3 direction = (targetPoint.position - transform.position).normalized;
-
-           // m_Slime.Move(direction.x * m_PatrolSpeed);
             
             if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
             {
@@ -111,7 +109,7 @@ namespace CombatSlime
             }
             else
             {
-                m_Slime.Move(direction.x * m_PatrolSpeed);  // Продолжаем движение
+                m_Slime.Move(direction.x * m_PatrolSpeed); 
             }
         }
 

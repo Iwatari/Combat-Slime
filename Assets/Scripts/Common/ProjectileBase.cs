@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CombatSlime;
 
 namespace Common
 {
@@ -13,6 +14,7 @@ namespace Common
 
         private float m_Timer;
         protected Destructible m_Parent;
+        [SerializeField] protected WeaponMode weaponColor; // Цвет снаряда
 
         protected virtual void Update()
         {
@@ -27,12 +29,16 @@ namespace Common
                 {
                     OnHit(hit.collider);
 
-                    Destructible dest = hit.collider.transform.root.GetComponent<Destructible>();
+                    Destructible target = hit.collider.transform.root.GetComponent<Destructible>();
 
-                    if (dest != null && dest != m_Parent)
+                    if (target != null && target != m_Parent)
                     {
-                        dest.AplyDamage(m_Damage);
-                        OnHit(dest);
+                        // Проверяем, можно ли нанести урон.
+                        if (IsDamageValid(target))
+                        {
+                            target.AplyDamage(m_Damage);
+                        }
+                        OnHit(target);
                     }
                     OnProjectileLifeEnd(hit.collider, hit.point);
                 }
@@ -50,6 +56,34 @@ namespace Common
         {
             m_Parent = parent;
             m_CollisionLayer = collisionLayers;
+        }
+
+        private bool IsDamageValid(Destructible target)
+        {
+            AIColorController aiControl = target.GetComponent<AIColorController>();
+
+            // Если цель не содержит AIControl (например, игрок), урон всегда проходит.
+            if (aiControl == null)
+            {
+                return true;
+            }
+
+            // Если атакующий — бот, урон всегда проходит.
+            if (m_Parent.GetComponent<AIColorController>() != null)
+            {
+                return true;
+            }
+
+            // Сравнение цвета для обычных объектов.
+            bool result = aiControl.GetCurrentColor() switch
+            {
+                AIColorController.SlimeColor.White => weaponColor == WeaponMode.White,
+                AIColorController.SlimeColor.Blue => weaponColor == WeaponMode.Blue,
+                AIColorController.SlimeColor.Yellow => weaponColor == WeaponMode.Yellow,
+                _ => false
+            };
+
+            return result;
         }
 
         protected virtual void OnHit(Destructible destructible) { }

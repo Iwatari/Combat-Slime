@@ -149,6 +149,7 @@ MonoBehaviour:
   m_CollisionLayer:
     serializedVersion: 2
     m_Bits: 264
+  weaponColor: 2
 --- !u!1 &8740610173415139327
 GameObject:
   m_ObjectHideFlags: 0
