@@ -29,6 +29,10 @@ namespace CombatSlime
             m_MovementController = movementController;
             m_SpawnPoint = spawnPoint;
         }
+        private void Awake()
+        {
+            Init();
+        }
 
         private void Start()
         {
