@@ -2574,10 +2574,6 @@ PrefabInstance:
       propertyPath: m_PatrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1458501731}
-    - target: {fileID: 3623480585430727499, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
-      propertyPath: m_ScoreValue
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7775206696190542858, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.93
