@@ -17,6 +17,7 @@ namespace CombatSlime
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Weapon[] m_Weapons;
 
+        private float m_AddedSpeed;
         private bool isGround;
         private Rigidbody2D m_Rigid;
         private Animator m_Animator;
@@ -159,6 +160,23 @@ namespace CombatSlime
                 m_SpriteRenderer.flipX = false;  
             else if (move < 0)
                 m_SpriteRenderer.flipX = true; 
+        }
+
+        public void AddSpeed(float duration, int speed)
+        {
+            SetSpeed(speed);
+            Invoke(nameof(DeactivateSpeed), duration);
+        }
+        public void SetSpeed(int speed)
+        {
+            m_MovementSpeed += speed;
+            m_AddedSpeed = speed;
+        }
+
+        private void DeactivateSpeed()
+        {
+            m_MovementSpeed -= m_AddedSpeed;
+            m_AddedSpeed = 0;
         }
 
 #if UNITY_EDITOR

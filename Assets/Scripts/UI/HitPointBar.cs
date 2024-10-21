@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace CombatSlime
 {
-
     public class HitpointBar : MonoBehaviour
     {
         [SerializeField] private Image m_Image;

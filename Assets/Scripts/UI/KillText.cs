@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace CombatSlime
 {
-
     public class KillText : MonoBehaviour
     {
         [SerializeField] private Text m_Text;
