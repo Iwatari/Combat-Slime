@@ -124,14 +124,14 @@ namespace CombatSlime
             }
         }
 
-        public void AssignWeapon(WeaponProperties props)
+        private void FlipSprite(float move)
         {
-            for (int i = 0; i < m_Weapons.Length; i++)
-            {
-                m_Weapons[i].AssignLoadout(props);
-            }
+            if (move > 0)
+                m_SpriteRenderer.flipX = false;  
+            else if (move < 0)
+                m_SpriteRenderer.flipX = true; 
         }
-
+        #region AI
         public void AIFire(Vector3 targetPosition, WeaponMode mode)
         {
             FireAtPosition(targetPosition, mode);
@@ -153,15 +153,9 @@ namespace CombatSlime
             m_Animator.SetBool("isFalling", m_Rigid.velocity.y < -0.1f);
             m_Animator.SetBool("isMoving", Mathf.Abs(m_Rigid.velocity.x) > 0.1f);
         }
+        #endregion
 
-        private void FlipSprite(float move)
-        {
-            if (move > 0)
-                m_SpriteRenderer.flipX = false;  
-            else if (move < 0)
-                m_SpriteRenderer.flipX = true; 
-        }
-
+        #region PowerUps
         public void AddSpeed(float duration, int speed)
         {
             SetSpeed(speed);
@@ -178,6 +172,18 @@ namespace CombatSlime
             m_MovementSpeed -= m_AddedSpeed;
             m_AddedSpeed = 0;
         }
+
+        public void AddHealth(int healthAmount)
+        {
+            m_CurrentHitPoints += healthAmount;
+
+            if (m_CurrentHitPoints > m_HitPoints)
+            {
+                m_CurrentHitPoints = m_HitPoints;
+            }
+        }
+        #endregion
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

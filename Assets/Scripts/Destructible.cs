@@ -14,7 +14,7 @@ namespace Common
         [SerializeField] protected int m_HitPoints;
         public int MaxHitPoints => m_HitPoints;
 
-        private int m_CurrentHitPoints;
+        protected int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
         #endregion

@@ -10,7 +10,6 @@ namespace CombatSlime
         { 
             AddInvulnerability,
             AddSpeed,
-            AddDamage,
             AddHealth
         }
 
@@ -22,14 +21,17 @@ namespace CombatSlime
 
         protected override void OnPickedUp(Slime slime)
         {
-            if (m_EffectType == EffectType.AddInvulnerability)
+            switch (m_EffectType)
             {
-                slime.ActivateInvulnerability((int)m_Timer);
-            }
-
-            if (m_EffectType == EffectType.AddSpeed)
-            {
-                slime.AddSpeed((int)m_Timer, (int)m_Value);
+                case EffectType.AddInvulnerability:
+                    slime.ActivateInvulnerability((int)m_Timer);
+                    break;
+                case EffectType.AddSpeed:
+                    slime.AddSpeed((int)m_Timer, (int)m_Value);
+                    break;
+                case EffectType.AddHealth:
+                    slime.AddHealth((int)m_Value); 
+                    break;
             }
         }
 

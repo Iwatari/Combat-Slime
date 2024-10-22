@@ -7,7 +7,7 @@ namespace CombatSlime
 {
     public class SceneLoader : MonoBehaviour
     {
-        private const string MainMenuSceneTitle = "main_menu";
+        private const string MainMenuSceneTitle = "MainMenu";
         public void LoadMainMenu()
         {
             SceneManager.LoadScene(MainMenuSceneTitle);
