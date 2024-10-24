@@ -6,6 +6,8 @@ namespace CombatSlime
     public abstract class PowerUp: MonoBehaviour
     {
         [SerializeField] private int m_TargetTeamID;
+        [SerializeField] private AudioSource m_PikUpSound;
+        [SerializeField] private float m_LifeTime;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Slime slime = collision.transform.root.GetComponent<Slime>();
@@ -13,8 +15,9 @@ namespace CombatSlime
             if (slime != null && Player.Instance.ActiveSlime && slime.TeamID == m_TargetTeamID)
             {
                 OnPickedUp(slime);
+                m_PikUpSound.Play();
 
-                Destroy(gameObject);
+                Destroy(gameObject, m_LifeTime);
             }
         }
         protected abstract void OnPickedUp(Slime slime);

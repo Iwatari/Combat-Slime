@@ -59,6 +59,7 @@ namespace CombatSlime
             }
 
             m_RefireTimer = m_WeaponProperties.RateOfFire;
+            m_Audio.Play();
         }
 
         public void AssignLoadout(WeaponProperties props)

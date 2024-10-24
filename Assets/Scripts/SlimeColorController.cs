@@ -9,6 +9,7 @@ namespace CombatSlime
         private Color m_WhiteColor = Color.white;
         private Color m_BlueColor = Color.blue;
         private Color m_YellowColor = Color.yellow;
+        [SerializeField] private AudioSource m_ColorChangeSound;
 
         private int m_ColorIndex = 0;
 
@@ -28,11 +29,13 @@ namespace CombatSlime
             {
                 if (m_ColorIndex == 0)
                 {
+                    m_ColorChangeSound.Play();
                     SetColorAndWeaponMode(m_BlueColor, WeaponMode.Blue);
                     m_ColorIndex = 1;
                 }
                 else if (m_ColorIndex == 2)
                 {
+                    m_ColorChangeSound.Play();
                     SetColorAndWeaponMode(m_WhiteColor, WeaponMode.White);
                     m_ColorIndex = 0;
                 }
@@ -41,11 +44,13 @@ namespace CombatSlime
             {
                 if (m_ColorIndex == 1)
                 {
+                    m_ColorChangeSound.Play();
                     SetColorAndWeaponMode(m_WhiteColor, WeaponMode.White);
                     m_ColorIndex = 0;
                 }
                 else if (m_ColorIndex == 0)
                 {
+                    m_ColorChangeSound.Play();
                     SetColorAndWeaponMode(m_YellowColor, WeaponMode.Yellow);
                     m_ColorIndex = 2;
                 }

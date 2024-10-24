@@ -5,6 +5,8 @@ namespace CombatSlime
 {
     public class Portal : MonoBehaviour
     {
+        [SerializeField] private AudioSource m_TeleportSound;
+
         [SerializeField] private Portal target;
 
         [HideInInspector] public bool IsReceive; 
@@ -15,6 +17,7 @@ namespace CombatSlime
         {
             if (isInTrigger && Input.GetKeyDown(KeyCode.F))
             {
+                m_TeleportSound.Play();
                 Teleport();
             }
         }

@@ -11,7 +11,8 @@ namespace Common
         [SerializeField] private float m_Lifetime;
         [SerializeField] protected int m_Damage;
         [SerializeField] protected LayerMask m_CollisionLayer;
-        [SerializeField] protected WeaponMode weaponColor; // Цвет снаряда
+        [SerializeField] protected WeaponMode weaponColor;
+        [SerializeField] private AudioSource m_DiniedDamageSound;
 
         private float m_Timer;
         protected Destructible m_Parent;
@@ -37,9 +38,12 @@ namespace Common
                         {
                             target.AplyDamage(m_Damage);  
                         }
-                        OnHit(target);
+                        else
+                        {
+                            m_DiniedDamageSound.Play(); 
+                        }
+                        OnProjectileLifeEnd(hit.collider, hit.point);
                     }
-                    OnProjectileLifeEnd(hit.collider, hit.point);
                 }
             }
 

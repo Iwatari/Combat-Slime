@@ -16,6 +16,7 @@ namespace CombatSlime
         [SerializeField] private Transform m_GroundCheck;
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Weapon[] m_Weapons;
+        [SerializeField] private AudioSource m_JumpSound;
 
         private float m_AddedSpeed;
         private bool isGround;
@@ -91,6 +92,7 @@ namespace CombatSlime
                 {
                     m_Rigid.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
                     isGround = false;
+                    m_JumpSound.Play();
                 }
             }
         }

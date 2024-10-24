@@ -30,7 +30,7 @@ namespace CombatSlime
                     slime.AddSpeed((int)m_Timer, (int)m_Value);
                     break;
                 case EffectType.AddHealth:
-                    slime.AddHealth((int)m_Value); 
+                    slime.AddHealth((int)m_Value);
                     break;
             }
         }

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3298455563965089300}
-  - component: {fileID: -1894923616846110713}
   - component: {fileID: -8756060253768785973}
+  - component: {fileID: -1894923616846110713}
   m_Layer: 9
   m_Name: WhiteProjectile
   m_TagString: Untagged
@@ -34,6 +34,27 @@ Transform:
   - {fileID: 2913875014369796006}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8756060253768785973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283556037161196212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b05a5236e0b2ec449f9c51809684a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Nickname: 
+  m_Velocity: 10
+  m_Lifetime: 3
+  m_Damage: 10
+  m_CollisionLayer:
+    serializedVersion: 2
+    m_Bits: 264
+  weaponColor: 0
+  m_DiniedDamageSound: {fileID: -1894923616846110713}
 --- !u!82 &-1894923616846110713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43,9 +64,9 @@ AudioSource:
   m_GameObject: {fileID: 2283556037161196212}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: 3875437964194874717, guid: 793fa64f9a62de544ad18acd90d68db5, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0d0ab9128165f8a468a41573437f287b, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -130,25 +151,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8756060253768785973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2283556037161196212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b05a5236e0b2ec449f9c51809684a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Nickname: 
-  m_Velocity: 10
-  m_Lifetime: 3
-  m_Damage: 10
-  m_CollisionLayer:
-    serializedVersion: 2
-    m_Bits: 264
 --- !u!1 &8740610173415139327
 GameObject:
   m_ObjectHideFlags: 0

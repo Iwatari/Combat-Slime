@@ -12,6 +12,8 @@ namespace Common
         public bool IsIndestructible => m_Indestructible;
 
         [SerializeField] protected int m_HitPoints;
+
+        [SerializeField] private AudioSource m_TakeDamageSound;
         public int MaxHitPoints => m_HitPoints;
 
         protected int m_CurrentHitPoints;
@@ -37,8 +39,9 @@ namespace Common
             if (m_Indestructible) return;
 
             m_CurrentHitPoints -= damage;
+            m_TakeDamageSound.Play();
 
-            if(m_CurrentHitPoints <= 0) 
+            if (m_CurrentHitPoints <= 0) 
                 OnDeath();
         }
         public void SetIndestructible(bool value)

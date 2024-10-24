@@ -19,6 +19,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-6004309968417451605
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5b093c6a65aeaac4f862c128be974194
+  m_EffectName: Attenuation
+  m_MixLevel: 5ce0fe58f96af7442bac5a6b6bec274f
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-5014505526716447495
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -30,6 +44,7 @@ AudioMixerGroupController:
   m_GroupID: 1610aef323bbb1a419c51a494369a497
   m_Children:
   - {fileID: -9197059944881398722}
+  - {fileID: 3875437964194874717}
   m_Volume: a39da77e174a3b242b72e08652844bb1
   m_Pitch: 8aa5089b89322af4b89585bab5d95bee
   m_Send: 00000000000000000000000000000000
@@ -79,6 +94,7 @@ AudioMixerController:
     - 1610aef323bbb1a419c51a494369a497
     - e4667a13233d1ec4eb2a8a66ba75351f
     - 3c4ae80fc6c1e854f9e989b8109f8c80
+    - c5d402ea2a3330e4ca73132d23b87e42
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -128,6 +144,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: 611282b491578b24e9bbe2ab4e45e9a3
   m_FloatValues:
     eebc6578db99a3d4e9b782d37236c433: -30.320126
+    ba6b1c2974efc8044a17f132c840cdcd: -9.833286
     a39da77e174a3b242b72e08652844bb1: -19.928473
     8883e9fe8f73c4a4599820bd47b01587: -0.08374829
   m_TransitionOverrides: {}
@@ -160,6 +177,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 207648394553224782}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &3875437964194874717
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c5d402ea2a3330e4ca73132d23b87e42
+  m_Children: []
+  m_Volume: ba6b1c2974efc8044a17f132c840cdcd
+  m_Pitch: 2c1cebcb15b5e5341a2287ce364b305c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6004309968417451605}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
