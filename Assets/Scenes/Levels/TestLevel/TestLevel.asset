@@ -15,3 +15,4 @@ MonoBehaviour:
   sceneName: TestLevel
   icon: {fileID: 21300000, guid: 5468906b63a82cc4fb4c403a436f54dd, type: 3}
   title: Testing
+  m_NextLevel: {fileID: 11400000, guid: 65fa4307d2b111e489dad5523c8bf19a, type: 2}

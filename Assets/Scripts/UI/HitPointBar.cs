@@ -11,6 +11,11 @@ namespace CombatSlime
 
         private void Update()
         {
+            if (Player.Instance == null || Player.Instance.ActiveSlime == null)
+            {
+                return; 
+            }
+
             float hitPoints = ((float)Player.Instance.ActiveSlime.HitPoints / (float)Player.Instance.ActiveSlime.MaxHitPoints);
 
             if (hitPoints != lastHitPoints)

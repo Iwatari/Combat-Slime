@@ -3,38 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GlobalDependenciesContainer : Dependency
+namespace CombatSlime
 {
-    [SerializeField] private Pauser pauser;
-
-    private static GlobalDependenciesContainer instance;
-
-    private void Awake()
+    public class GlobalDependenciesContainer : Dependency
     {
-        if(instance != null)
+        [SerializeField] private Pauser pauser;
+
+        private static GlobalDependenciesContainer instance;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        instance = this;
 
-        DontDestroyOnLoad(gameObject);
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+        protected override void BindAll(MonoBehaviour monoBehaviourInScene)
+        {
+            Bind<Pauser>(pauser, monoBehaviourInScene);
+        }
 
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    protected override void BindAll(MonoBehaviour monoBehaviourInScene)
-    {
-        Bind<Pauser>(pauser, monoBehaviourInScene);
-    }
-
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        FindAllObjectToBind();
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            FindAllObjectToBind();
+        }
     }
 }

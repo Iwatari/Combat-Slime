@@ -9,13 +9,12 @@ namespace CombatSlime
     public class Player : SingletonBase<Player>
     {
         [SerializeField] private int m_NumLives;
-        [SerializeField] private Slime m_Slime;
-        [SerializeField] private GameObject m_PlayerSlimePrefab;
+        [SerializeField] private Slime m_PlayerSlimePrefab;
         [SerializeField] private CameraController m_CameraController;
-        [SerializeField] private Slime m_MovementController;
 
         private Transform m_SpawnPoint;
 
+        private Slime m_Slime;
         private int m_Score;
         private int m_NumKills;
 
@@ -23,10 +22,10 @@ namespace CombatSlime
         public int NumKills => m_NumKills;
         public int NumLives => m_NumLives;
         public Slime ActiveSlime => m_Slime;
-        public void Construct(CameraController cameraController, Slime movementController, Transform spawnPoint)
+        public void Construct(CameraController cameraController, Slime slime, Transform spawnPoint)
         {
             m_CameraController = cameraController;
-            m_MovementController = movementController;
+            m_Slime = slime;
             m_SpawnPoint = spawnPoint;
         }
         private void Awake()
@@ -34,8 +33,10 @@ namespace CombatSlime
             Init();
         }
 
+
         private void Start()
         {
+            //Respawn();
             m_Slime.EventOnDeath.AddListener(OnSlimeDeath);
         }
 
@@ -53,6 +54,9 @@ namespace CombatSlime
 
             m_Slime = newPlayerSlime.GetComponent<Slime>();
 
+            m_Slime.EventOnDeath.AddListener(OnSlimeDeath);
+
+            m_CameraController.SetTarget(m_Slime.transform);
             m_CameraController.SetTarget(m_Slime.transform);
         }
 

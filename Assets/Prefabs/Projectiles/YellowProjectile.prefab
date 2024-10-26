@@ -54,7 +54,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   weaponColor: 1
-  m_DiniedDamageSound: {fileID: -1894923616846110713}
 --- !u!82 &-1894923616846110713
 AudioSource:
   m_ObjectHideFlags: 0

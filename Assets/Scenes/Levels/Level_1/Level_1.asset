@@ -15,3 +15,4 @@ MonoBehaviour:
   sceneName: Level_1
   icon: {fileID: 21300000, guid: 293f32c848fde9f42936bf1d56503599, type: 3}
   title: Level 1
+  m_NextLevel: {fileID: 11400000, guid: 7c729fd08f3008a46b30e58b580e77e2, type: 2}
