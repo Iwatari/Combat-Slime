@@ -10,7 +10,7 @@ namespace CombatSlime
     {
         [SerializeField] private int m_NumLives;
         [SerializeField] private Slime m_PlayerSlimePrefab;
-        [SerializeField] private CameraController m_CameraController;
+         private CameraController m_CameraController;
 
         private Transform m_SpawnPoint;
 
@@ -28,11 +28,6 @@ namespace CombatSlime
             m_Slime = slime;
             m_SpawnPoint = spawnPoint;
         }
-        private void Awake()
-        {
-            Init();
-        }
-
 
         private void Start()
         {
@@ -50,7 +45,7 @@ namespace CombatSlime
 
         private void Respawn()
         {
-            var newPlayerSlime = Instantiate(m_PlayerSlimePrefab);
+            var newPlayerSlime = Instantiate(m_PlayerSlimePrefab, m_SpawnPoint);
 
             m_Slime = newPlayerSlime.GetComponent<Slime>();
 
@@ -58,6 +53,7 @@ namespace CombatSlime
 
             m_CameraController.SetTarget(m_Slime.transform);
             m_CameraController.SetTarget(m_Slime.transform);
+
         }
 
         public void AddKill()

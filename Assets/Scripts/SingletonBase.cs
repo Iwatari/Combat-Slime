@@ -5,6 +5,10 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 {
     public static T Instance { get; private set; }
 
+    protected virtual void Awake()
+    {
+        Init();
+    }
     public void Init()
     {
         if (Instance != null && Instance != this)
@@ -15,7 +19,7 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
         }
 
         Instance = this as T;
-        DontDestroyOnLoad(gameObject);
+     //   DontDestroyOnLoad(gameObject);
     }
 }
 

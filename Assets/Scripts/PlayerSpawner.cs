@@ -7,7 +7,7 @@ namespace CombatSlime
     public class PlayerSpawner : MonoBehaviour
     {
         [Header("Prefab")]
-        [SerializeField] private CameraController m_CameraController;
+        [SerializeField] private CameraController m_CameraControllerPrefab;
         [SerializeField] private Player m_PlayerPrefab;
         [SerializeField] private Slime m_SlimePrefab;
 
@@ -15,7 +15,7 @@ namespace CombatSlime
 
         public Player Spawn()
         {
-            CameraController cameraController = Instantiate(m_CameraController);
+            CameraController cameraController = Instantiate(m_CameraControllerPrefab);
 
             Slime slime = Instantiate(m_SlimePrefab);
 

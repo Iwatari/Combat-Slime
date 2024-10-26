@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e044e432c15154381e170d8c537d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NumLives: 3
+  m_NumLives: 4
   m_PlayerSlimePrefab: {fileID: 6775788709529991093, guid: f5f8172fa44b9e74c8fde9c20dc184b8, type: 3}
   m_CameraController: {fileID: 3820475386863506130, guid: bf26e5a6140c0a54a899d748b06327dd, type: 3}

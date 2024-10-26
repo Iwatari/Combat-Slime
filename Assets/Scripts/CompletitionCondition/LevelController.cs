@@ -21,10 +21,6 @@ namespace CombatSlime
         public bool HasNextLevel => m_LevelProperties.NextLevel != null;
         public float LevelTime => m_LevelTime;
 
-        private void Awake()
-        {
-            Init();
-        }
         private void Start()
         {
             Time.timeScale = 1;

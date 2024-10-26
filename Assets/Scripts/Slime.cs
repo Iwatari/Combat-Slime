@@ -24,8 +24,6 @@ namespace CombatSlime
         private Animator m_Animator;
         private SpriteRenderer m_SpriteRenderer;
         private WeaponMode m_Mode;
-
-
         protected override void Start()
         {
             base.Start();
