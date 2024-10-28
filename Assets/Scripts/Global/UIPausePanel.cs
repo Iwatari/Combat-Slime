@@ -6,6 +6,7 @@ using UnityEngine;
 public class UIPausePanel : MonoBehaviour, IDependency<Pauser>
 {
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject resultPanel;
 
     private Pauser pauser;
     public void Construct(Pauser obj) =>pauser = obj;
@@ -28,7 +29,7 @@ public class UIPausePanel : MonoBehaviour, IDependency<Pauser>
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && (resultPanel == null || !resultPanel.activeSelf))
         {
             pauser.ChangePauseState();
         }

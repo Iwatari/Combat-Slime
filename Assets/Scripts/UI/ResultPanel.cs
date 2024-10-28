@@ -21,11 +21,14 @@ namespace CombatSlime
         private void Start()
         {
             gameObject.SetActive(false);
+
+            LevelController.Instance.LevelLost += OnLevelLost;
             LevelController.Instance.LevelPassed += OnLevelPassed;
         }
 
         private void OnDestroy()
         {
+            LevelController.Instance.LevelLost -= OnLevelLost;
             LevelController.Instance.LevelPassed -= OnLevelPassed;
         }
         private void OnLevelPassed()
@@ -64,7 +67,7 @@ namespace CombatSlime
             }
             else
             {
-                LevelController.Instance.RestartLevel();
+                LevelController.Instance.Restart();
             }
         }
 

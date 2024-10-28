@@ -36,6 +36,7 @@ namespace CombatSlime
 
         private void OnDestroy()
         {
+            if (buttons == null) return;
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].PointerEnter -= OnPointerEnter;

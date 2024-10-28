@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Camera: {fileID: 9003876586574569195}
   m_Target: {fileID: 3955597982567213862, guid: f5f8172fa44b9e74c8fde9c20dc184b8, type: 3}
   m_SmoothSpeed: 0.125
-  m_HorizontalOffset: 5
+  m_HorizontalOffset: 2
   m_VerticalOffset: 3

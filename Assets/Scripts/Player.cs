@@ -45,7 +45,7 @@ namespace CombatSlime
 
         private void Respawn()
         {
-            var newPlayerSlime = Instantiate(m_PlayerSlimePrefab, m_SpawnPoint);
+            var newPlayerSlime = Instantiate(m_PlayerSlimePrefab);
 
             m_Slime = newPlayerSlime.GetComponent<Slime>();
 

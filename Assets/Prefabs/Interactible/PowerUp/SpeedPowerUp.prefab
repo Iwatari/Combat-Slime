@@ -172,7 +172,7 @@ MonoBehaviour:
   m_LifeTime: 0.05
   m_EffectType: 1
   m_Timer: 5
-  m_Value: 25
+  m_Value: 3.5
 --- !u!82 &-6698317015732841571
 AudioSource:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5014505526716447495, guid: 793fa64f9a62de544ad18acd90d68db5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 62c6c23962f4a53438ca0eaca8fddcc8, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

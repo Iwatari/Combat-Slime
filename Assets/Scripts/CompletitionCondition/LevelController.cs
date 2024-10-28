@@ -14,6 +14,7 @@ namespace CombatSlime
 
         [SerializeField] private LevelInfo m_LevelProperties;
         [SerializeField] private LevelCondition[] m_Conditions;
+        [SerializeField] private AudioSource m_WictorySound;
 
         private bool m_IsLevelCompleted;
         private float m_LevelTime;
@@ -67,6 +68,7 @@ namespace CombatSlime
 
         private void Pass()
         {
+            m_WictorySound.Play();
             LevelPassed?.Invoke();
             Time.timeScale = 0;
         }
@@ -79,6 +81,10 @@ namespace CombatSlime
                 SceneManager.LoadScene(MainMenuSceneName);
         }
 
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         public void RestartLevel()
         {
             SceneManager.LoadScene(m_LevelProperties.SceneName);

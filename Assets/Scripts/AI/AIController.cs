@@ -30,7 +30,7 @@ namespace CombatSlime
         [SerializeField] private float m_TargetUpdateInterval = 1f;
         private float m_AttackCooldown = 0f;
         private float m_TargetUpdateTimer = 0f;
-
+        private float m_RadiusSphere = 0.4f;
         private Slime m_Slime;
         private int m_CurrentPointIndex = 0;
         private bool isWaiting = false;
@@ -124,7 +124,7 @@ namespace CombatSlime
             Vector2 direction = (m_SelectedTarget.transform.position - transform.position).normalized;
 
             m_Slime.Move(direction.x * m_PatrolSpeed);
-            // Визуализируем направление атаки
+
             Debug.DrawLine(transform.position, m_SelectedTarget.transform.position, Color.red);
 
 
@@ -140,12 +140,10 @@ namespace CombatSlime
             Vector2 direction = (target.transform.position - transform.position).normalized;
             float distance = Vector2.Distance(transform.position, target.transform.position);
 
-            // Исключаем слои AI и Projectile
             LayerMask mask = ~(LayerMask.GetMask("AI", "Projectile"));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, mask);
             if (hit.collider != null)
             {
-                // Проверяем, является ли поражённый объект целью
                 return hit.collider.GetComponent<Destructible>() == target;
             }
             return true;
@@ -160,7 +158,6 @@ namespace CombatSlime
             {
                 if (destructible == null) continue;
 
-                // Исключаем самого себя
                 if (destructible.GetComponent<AIController>() == this) continue;
 
                 // функционал для добавлкения команд
@@ -203,10 +200,12 @@ namespace CombatSlime
             {
                 for (int i = 0; i < m_PatrolPoints.Length; i++)
                 {
-                    Gizmos.color = Color.green;
-                    Gizmos.DrawSphere(m_PatrolPoints[i].position, 0.2f);
+                    if (m_PatrolPoints[i] == null) continue;
 
-                    if (i < m_PatrolPoints.Length - 1)
+                    Gizmos.color = Color.green;
+                    Gizmos.DrawSphere(m_PatrolPoints[i].position, m_RadiusSphere);
+
+                    if (i < m_PatrolPoints.Length - 1 && m_PatrolPoints[i + 1] != null)
                     {
                         Gizmos.DrawLine(m_PatrolPoints[i].position, m_PatrolPoints[i + 1].position);
                     }
@@ -216,5 +215,6 @@ namespace CombatSlime
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, m_AttackRange);
         }
+
     }
 }
