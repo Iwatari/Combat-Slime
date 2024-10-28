@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CombatSlime
@@ -7,8 +5,8 @@ namespace CombatSlime
     [RequireComponent(typeof(AudioSource))]
     public class UIButtonSound : MonoBehaviour
     {
-        [SerializeField] private AudioClip hover;
-        [SerializeField] private AudioClip click;
+        [SerializeField] private AudioClip m_Hover;
+        [SerializeField] private AudioClip m_Click;
 
         private new AudioSource audio;
 
@@ -36,12 +34,12 @@ namespace CombatSlime
 
         private void OnPointerEnter(UIButton arg)
         {
-            audio.PlayOneShot(hover);
+            audio.PlayOneShot(m_Hover);
         }
 
         private void OnPointerClicked(UIButton arg)
         {
-            audio.PlayOneShot(click);
+            audio.PlayOneShot(m_Click);
         }
     }
 }

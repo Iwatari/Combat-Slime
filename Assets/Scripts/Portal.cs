@@ -1,5 +1,4 @@
 using UnityEngine;
-using Common;
 
 namespace CombatSlime
 {
@@ -7,7 +6,7 @@ namespace CombatSlime
     {
         [SerializeField] private AudioSource m_TeleportSound;
 
-        [SerializeField] private Portal target;
+        [SerializeField] private Portal m_Target;
 
         [HideInInspector] public bool IsReceive; 
 
@@ -48,9 +47,9 @@ namespace CombatSlime
 
             if (slime != null)
             {
-                target.IsReceive = true;
+                m_Target.IsReceive = true;
 
-                slime.transform.position = target.transform.position;
+                slime.transform.position = m_Target.transform.position;
             }
         }
     }

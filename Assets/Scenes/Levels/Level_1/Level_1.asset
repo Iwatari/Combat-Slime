@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: 
   sceneName: Level_1
-  icon: {fileID: 21300000, guid: 293f32c848fde9f42936bf1d56503599, type: 3}
-  title: Level 1
-  m_NextLevel: {fileID: 11400000, guid: 7c729fd08f3008a46b30e58b580e77e2, type: 2}
+  icon: {fileID: 21300000, guid: 7d7336fcf7df5314da265b6e9b29b073, type: 3}
+  title: FirstLevel
+  m_NextLevel: {fileID: 11400000, guid: fcb15092c9f4ee34ca70fb720a23dfb2, type: 2}

@@ -12,20 +12,20 @@ namespace CombatSlime
         }
 
         [Header("Настройки цвета")]
-        public SlimeColor slimeColor;
+        public SlimeColor m_SlimeColor;
 
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer m_SpriteRenderer;
 
         private void Awake()
         {
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            SetColor(slimeColor);
+            m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            SetColor(m_SlimeColor);
         }
 
         public void SetColor(SlimeColor newColor)
         {
-            slimeColor = newColor;
-            spriteRenderer.color = GetColor(newColor);
+            m_SlimeColor = newColor;
+            m_SpriteRenderer.color = GetColor(newColor);
         }
 
         private Color GetColor(SlimeColor color)
@@ -41,14 +41,14 @@ namespace CombatSlime
 
         public SlimeColor GetCurrentColor()
         {
-            return slimeColor;
+            return m_SlimeColor;
         }
 
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            SetColor(slimeColor);
+            if (m_SpriteRenderer == null) m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            SetColor(m_SlimeColor);
         }
 #endif
     }

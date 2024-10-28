@@ -57,7 +57,6 @@ namespace CombatSlime
             {
                 m_IsLevelCompleted = true;
                 Pass();
-                Debug.Log("com");
             }
         }
         private void Lose()
