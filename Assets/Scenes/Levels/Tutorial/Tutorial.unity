@@ -6629,37 +6629,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 684791591287521600, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
-      propertyPath: m_Color.b
-      value: 0.015686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 684791591287521600, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
-      propertyPath: m_Color.g
-      value: 0.92156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 2724131566603474435, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
-      propertyPath: slimeColor
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 659485229384951288, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7994521144306847294, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
-      propertyPath: m_AttackMode
+    - target: {fileID: 659485229384951288, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
+      propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994521144306847294, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
-      propertyPath: m_PatrolPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1692513064}
-    - target: {fileID: 7994521144306847294, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
-      propertyPath: m_PatrolPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 129450969}
-    - target: {fileID: 659485229384951288, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
-      propertyPath: m_Name
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2645863079164100632, guid: 5428115b16084b347bbe23ed7720bd3f, type: 3}
       propertyPath: m_Color.b
@@ -6717,6 +6693,30 @@ PrefabInstance:
       propertyPath: m_SlimeColor
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 684791591287521600, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 684791591287521600, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724131566603474435, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
+      propertyPath: slimeColor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994521144306847294, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
+      propertyPath: m_AttackMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994521144306847294, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
+      propertyPath: m_PatrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1692513064}
+    - target: {fileID: 7994521144306847294, guid: 4a4184d7d70e49644910d92d2a8d48a2, type: 3}
+      propertyPath: m_PatrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 129450969}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
